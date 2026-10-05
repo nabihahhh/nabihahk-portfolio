@@ -1,1 +1,175 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #fafaf8;
+  --bg-soft: #f3f3ef;
+  --surface: #ffffff;
+  --ink: #16161a;
+  --ink-2: #4a4a52;
+  --ink-3: #8a8a93;
+  --line: #e7e6e1;
+  --accent: #1f6f5c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6f1ed;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(22, 22, 26, 0.04), 0 8px 24px rgba(22, 22, 26, 0.06);
+  --container: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 600px) {
+    padding: 0 16px;
+  }
+}
+
+.section {
+  padding: 96px 0;
+  border-top: 1px solid var(--line);
+
+  @media (max-width: 600px) {
+    padding: 64px 0;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  max-width: 640px;
+}
+
+.section-lead {
+  color: var(--ink-2);
+  max-width: 600px;
+  margin-top: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+  }
+
+  &--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  &--ghost {
+    background: transparent;
+    border-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--line);
+    padding-inline: 8px;
+
+    &:hover {
+      box-shadow: none;
+      text-decoration-color: var(--ink);
+    }
+  }
+}
+
+.chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
