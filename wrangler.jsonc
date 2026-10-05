@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nabihahk-portfolio",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist/nabihahk-portfolio/browser",
+    "not_found_handling": "single-page-application"
+  }
+}
